@@ -1,7 +1,4 @@
 .env
 .venv/
 __pycache__/
-*.pyc
-data/
-static/pdfjs/
-sourcelens.zip
+*.pyc/
