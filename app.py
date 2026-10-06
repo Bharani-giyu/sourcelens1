@@ -5,7 +5,6 @@ import logging
 import os
 from pathlib import Path
 from urllib.parse import quote
-import secrets
 
 from nicegui import app, events, run, ui
 from starlette.responses import FileResponse, Response
@@ -637,18 +636,10 @@ def index() -> None:
 
 if __name__ in {'__main__', '__mp_main__'}:
     ui.run(
-        title='SourceLens',
-        host=os.getenv('HOST', '127.0.0.1'),
-        port=int(os.getenv('PORT', '8080')),
-        reload=False,
-        show=False,
-        favicon='🔎',
-    )
-
-    ui.run(
         title="SourceLens",
         host="0.0.0.0",
         port=int(os.environ.get("PORT", "8080")),
         reload=False,
         show=False,
     )
+
