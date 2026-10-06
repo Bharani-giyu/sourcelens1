@@ -651,5 +651,4 @@ if __name__ in {'__main__', '__mp_main__'}:
         port=int(os.environ.get("PORT", "8080")),
         reload=False,
         show=False,
-        storage_secret=os.environ.get("NICEGUI_STORAGE_SECRET") or secrets.token_urlsafe(32),
     )
