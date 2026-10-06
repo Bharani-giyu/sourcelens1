@@ -1,0 +1,6 @@
+nicegui>=3.0,<4
+chromadb>=1.0,<2
+PyMuPDF>=1.26,<2
+openai>=2.0,<3
+azure-ai-inference>=1.0.0b9,<2
+python-dotenv>=1.0,<2
