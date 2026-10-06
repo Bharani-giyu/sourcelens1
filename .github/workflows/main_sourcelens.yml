@@ -22,7 +22,7 @@ jobs:
       - name: Set up Python version
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: '3.13'
 
       # 🛠️ Local Build Section (Optional)
       # The following section in your workflow is designed to catch build issues early on the client side, before deployment. This can be helpful for debugging and validation. However, if this step significantly increases deployment time and early detection is not critical for your workflow, you may remove this section to streamline the deployment process.
@@ -50,10 +50,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
-    # Serialize this app/slot's deployments; cancelling a runner may leave OneDeploy running.
-    concurrency:
-      group: azure-webapp-sourcelens-production
-      cancel-in-progress: false
     permissions:
       id-token: write #This is required for requesting the JWT
       contents: read #This is required for actions/checkout
@@ -67,9 +63,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_4388DFF030BF44E785DC486B33B6A3BB }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_3351707CA27B4E408E88D44CA81A5644 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_73FD475520D74A8C84AD6665E56987B3 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_31A4B970C6884864A8166BAD02FC1572 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_77D09318978B4AA0B89F2FF954D93DF1 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_C349A73B34214138A854827A199CFAA8 }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
